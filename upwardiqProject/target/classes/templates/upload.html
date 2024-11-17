@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Upload Customer Data</title>
+    <style>
+    	body {
+    font-family: Arial, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    background-color: #f9f9f9;
+}
+
+/* Container */
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 20px 0;
+    background-color:lightblue;
+    color: white;
+}
+header h1 {
+    font-size: 36px;
+    margin: 10px 0;
+    color:blue;
+}
+
+header h2{
+    font-size: 23px;
+    margin: 0;
+    color:#0c1a1a97;
+}
+/* Main Content */
+main {
+    width: 100%;
+    padding: 40px;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    height: 100%;
+    text-align: center;
+}
+main textarea {
+   margin-right:500px;
+}
+main button{
+margin-right:500px;
+}
+main h2 {
+    font-size: 30px;
+    color: #333;
+    margin-bottom: 10px;
+    padding-top: 60px;
+}
+main h1{
+	 margin-top:0%;
+	 margin-right:80%;
+}
+main a{
+	font-size: 30px;
+	color:blue;
+	margin-right:25vh;
+	float:left;
+}
+main label{
+float:left;
+}
+/* table  */
+table {
+      border-collapse: collapse;
+      width: 100%;
+      }
+th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+     }
+th {
+      background-color: #f2f2f2;
+    }
+    </style>
+</head>
+<body>
+	<div class="container">
+        <!-- Header Section -->
+        <header>
+           <h1>UpwardIQ</h1>
+           <h2>towards better tomorrow</h2>
+        </header>
+   
+    	<main>
+		    <h1>Home>>UploadCustomerData</h1>
+			    <!-- Display message -->
+			    <p th:if="${message}" th:text="${message}"></p>
+			
+			    <!-- Textarea for JSON input -->
+			    <form action="/load" method="post">
+			        <label for="data">Customer Data (JSON):</label><br>
+			        <textarea id="data" name="data" rows="10" cols="50"></textarea><br><br>
+			        <button type="submit">Load</button>
+			    </form>
+			
+			    <br>
+			
+			    <!-- Display loaded data in a table -->
+			    <h2>Review Customers</h2>
+			    <form action="/save" method="post" th:if="${customers != null && customers.size() > 0}">
+			        <table>
+			            <thead>
+			                <tr>
+			                    <th>#</th>
+			                    <th>Name</th>
+			                    <th>Gender</th>
+			                    <th>Address</th>
+			                </tr>
+			            </thead>
+			            <tbody>
+			                <tr th:each="customer, iterStat : ${customers}">
+			                    <td th:text="${iterStat.count}"></td>
+			                    <td th:text="${customer.name}"></td>
+			                    <td th:text="${customer.gender}"></td>
+			                    <td th:text="${customer.address}"></td>
+			                </tr>
+			            </tbody>
+			        </table>
+			        <br>
+			        <button type="submit">Save</button>
+			    </form>
+	   </main>
+     </div>
+</body>
+</html>

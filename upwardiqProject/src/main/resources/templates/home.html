@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+    <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    background-color: #f9f9f9;
+}
+
+/* Container */
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 20px 0;
+    background-color:lightblue;
+    color: white;
+}
+header h1 {
+    font-size: 36px;
+    margin: 10px 0;
+    color:blue;
+}
+
+header h2{
+    font-size: 23px;
+    margin: 0;
+    color:#0c1a1a97;
+}
+
+/* Navigation */
+nav {
+    background-color: #f0f0f0;
+    border-right: 2px solid #ddd;
+    width: 20%;
+    float: left;
+    height: 78vh;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    border-bottom: 1px solid #ddd;
+}
+
+nav ul li a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+}
+
+nav ul li a:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+/* Main Content */
+main {
+    width: 73.5%;
+    padding: 40px;
+    background-color: white;
+    margin-left: 20%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    height: 64vh;
+    text-align: center;
+}
+
+main h2 {
+    font-size: 30px;
+    color: #333;
+    margin-bottom: 20px;
+    padding-top: 80px;
+}
+
+main p {
+    font-size: 20px;
+    color: #555;
+}
+main h3{
+	 padding-top: 0px;
+	 margin-right: 90%;
+	 margin-top: 10px;
+}
+main h1{
+	 margin-top:0%;
+	 margin-right:80%;
+}
+main a{
+	font-size: 30px;
+	color:blue;
+	margin-right:25vh;
+	float:left;
+}
+    </style>
+   
+</head>
+<body>
+<!--<h1>Welcome to Customer Management</h1>
+    <a href="/upload">Upload Customers</a>
+    <a href="/search">Search Customers</a>-->
+    
+     <div class="container">
+        <!-- Header Section -->
+        <header>
+           <h1>UpwardIQ</h1>
+           <h2>towards better tomorrow</h2>
+        </header>
+
+        <!-- Navigation Section -->
+        <nav>
+            <ul>
+                <li><a href="/upload">Upload Customers</a></li>
+                <li><a href="/search">Search Customers</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h2>Welcome to UpwardIQ</h2>
+            <p>Bulk upload customer Data Application</p>
+        </main>
+    </div>
+</body>
+</html>

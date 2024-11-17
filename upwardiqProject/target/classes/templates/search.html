@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Search Customers</title>
+     <style>
+    	body {
+    font-family: Arial, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    background-color: #f9f9f9;
+}
+
+/* Container */
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 20px 0;
+    background-color:lightblue;
+    color: white;
+}
+header h1 {
+    font-size: 36px;
+    margin: 10px 0;
+    color:blue;
+}
+
+header h2{
+    font-size: 23px;
+    margin: 0;
+    color:#0c1a1a97;
+}
+/* Main Content */
+main {
+    width: 93.5%;
+    padding: 40px;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    height: 64vh;
+    text-align: center;
+}
+main button{
+	margin-bottom:30px;
+	margin-top:20px;
+}
+/* table  */
+table {
+      border-collapse: collapse;
+      width: 100%;
+      }
+th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+     }
+th {
+      background-color: #f2f2f2;
+    }
+    </style>
+</head>
+<body>
+<div class="container">
+        <!-- Header Section -->
+        <header>
+           <h1>UpwardIQ</h1>
+           <h2>towards better tomorrow</h2>
+        </header>
+        <main>
+		    <h1>SearchCustomers</h1>
+		    <form method="post" action="/search">
+		        Name: <input type="text" name="name" />
+		        Gender: <input type="text" name="gender" />
+		        <br>
+		        <button type="submit">Search</button>
+		        <!-- Export to Excel Button -->
+		        <a href="/downloadExcel">
+		            <button type="button">Export to Excel</button>
+		        </a>
+		    </form>
+		     <table>
+			            <thead>
+			                <tr>
+			                    <th>Id</th>
+			                    <th>Name</th>
+			                    <th>Gender</th>
+			                    <th>Address</th>
+			                </tr>
+			            </thead>
+			            <tbody>
+			                <tr th:each="customer : ${customers}">
+				            <td th:text="${customer.id}"></td>
+				            <td th:text="${customer.name}"></td>
+				            <td th:text="${customer.gender}"></td>
+				            <td th:text="${customer.address}"></td>
+				        </tr>
+			            </tbody>
+			 </table>
+		  </main>
+     </div>
+</body>
+</html>
